@@ -1,0 +1,71 @@
+/**
+    Document   : easygame
+    Created on : March 16, 2020, 14:28
+    Author     : Kom Sihon
+    Description:
+        Rules for Easygame
+*/
+
+.grids-stage .header {margin: 15px 0 15px;}
+.grids-stage .header label {font-size: 18px;}
+.grids-stage .header select {max-width: 320px}
+.ticket {padding: 15px;}
+.ticket .block {margin-top: 15px;clear: both;}
+.ticket ul {float: left;width: 100%;}
+.ticket li {display: block;clear: both;padding: 2px 0;float: left;width: 100%;}
+.ticket li span {float: left}
+.ticket li .datetime {width: 115px;color: #888;}
+.ticket li i {cursor: pointer}
+.ticket .actions {margin-top: 30px}
+.ticket .summary {margin-top: 45px}
+#slideshow {/* width: 100%; */height: 150px;}
+.swiper-slide {background: no-repeat center;background-size: cover;height: 150px;width: 100%;}
+
+#show-ticket {background: #fff;bottom: 0;height: 42px;padding: 10px 15px;position: fixed;width: 100%;}
+
+/****   GRIDS RULES  ****/
+
+.data-grid {border: 1px solid #F9E4CC; clear: both; width: 100%}
+.data-grid thead tr {background: #7AAEE0; color: #fff; font-size: 13px; font-weight: bold; height: 24px}
+.data-grid tbody tr:hover {background: #F1F1F1 none; background: -webkit-gradient(linear, left top, left bottom, from(#FFF4D5), to(#F0D09E)); background: -moz-linear-gradient(top, #FFF4D5, #F0D09E); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFF4D5, endColorstr=#FFF0D09E); background: -ms-linear-gradient(top, #FFF4D5, #F0D09E); background: -o-linear-gradient(top, #FFF4D5, #F0D09E)}
+.data-grid thead td {border-left: 1px solid #FEFAF3; text-align: center}
+.data-grid tr {background: #FEFAF3}
+.data-grid tr.even {background: #FCF2E6}
+.data-grid .even td {border-top: 1px solid #fff}
+.data-grid td {height: 15px; overflow: hidden; padding: 4px 6px}
+.data-grid td a {color: #00F; cursor: pointer}
+.data-grid td a.greyed {color: #A9A9A9; cursor: default; font-weight: bold}
+.data-grid .last-row td {border-bottom: none}
+.data-grid tbody .selected {background: #FFF4D5}
+.data-grid .empty-grid {color: #999; text-align: center}
+.data-grid .numeric {text-align: right}
+.grid-summary-ctnr {background: #F7F7F7; border: 1px solid #A9A9A9; color: #555; margin-bottom: 5px}
+.grid-summary {padding: 10px 15px}
+.grid-filter,.grid-filter:hover {background: #fff}
+.grid-filter td {padding: 0}
+.grid-filter input[type=text], .grid-filter select {border: none; height: 20px; width: 100%}
+.count {font-size: 18px; font-weight: bold}
+.processed {color: #999}
+
+.bet-grid {font-size: 1em;margin: 10px 0;}
+.bet-grid td {border-bottom: 1px solid; border-left: 1px solid; padding: 0 2px;}
+#race-stage .bet-grid td:not(:first-child) {width: 33px}
+.bet-grid thead td {
+     background: #f3f3f3;
+     border-left: 1px solid #00003F;
+     border-top: 1px solid #00003F;
+     padding: 6px 3px;
+ }
+.bet-grid thead td:last-child {border-right: 1px solid #00003F}
+.bet-grid tr td:first-child {font-weight: bold; min-width: 80px}
+.bet-grid tbody tr td:last-child {border-right: 1px solid}
+.bet-grid tbody tr td:first-child {padding: 3px 5px}
+.bet-grid tbody tr td:first-child span {color: #4e4e4e;}
+.bet-grid input {border: none; color: #AF0240; font-weight: bold; text-align: center; width: 100%}
+.bet-grid .button {float: none; margin: 6px auto; width: 90px}
+
+@media (min-width: 768px) {
+    #content {padding-left:15px; padding-right: 15px}
+    #slideshow {height: 360px}
+    .swiper-slide {height: 360px}
+}

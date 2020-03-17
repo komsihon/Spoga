@@ -1,0 +1,652 @@
+{% extends "core/base_bs.html" %}
+{% load i18n humanize static auth_tokens %}
+
+{% block head_style %}
+    {{ block.super }}
+    <link rel='stylesheet' href="{% static 'ikwen/swiper/css/swiper.min.css' %}" />
+    <link rel='stylesheet' href="{% static 'easygame/css/easygame.css' %}" />
+{% endblock %}
+
+{% block head_js %}
+    {{ block.super }}
+    <script src="{% static 'ikwen/swiper/js/swiper.jquery.min.js' %}"></script>
+{% endblock %}
+
+{% block header_brand %}
+<a class="navbar-brand hidden-xs" href="{{ settings.IKWEN_BASE_URL }}"><strong>EasyGame</strong></a>
+<strong class="navbar-brand visible-xs">EasyGame</strong>
+{% endblock %}
+
+{% block content %}
+    <div id="content" class="edge-panel-left-container container-fluid">
+        <div>
+            <div class="col-sm-9">
+                <div id="slideshow" class="row">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" style="background-image: url({% static 'easygame/img/banner1.jpg' %})"></div>
+                            <div class="swiper-slide" style="background-image: url({% static 'easygame/img/banner2.jpg' %})"></div>
+                            <div class="swiper-slide" style="background-image: url({% static 'easygame/img/banner3.jpg' %})"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grids-stage">
+                    <div class="form-group header">
+                        <label for="race">{% trans "Races" %}</label>
+                        <select id="race" class="form-control">
+                            <option>Course 1</option>
+                            <option>Course 2</option>
+                            <option>Course 3</option>
+                        </select>
+                    </div>
+                    <div class="grids row">
+                        <div class="box col-sm-6">
+                            <h5>QUINTE</h5>
+                            <table class="bet-grid quinte" cellspacing='0' cellpadding='0'>
+                                <thead>
+                                    <tr>
+                                        <td>Place</td> <td>1<sup>ère</sup></td> <td>2<sup>ème</sup></td> <td>3<sup>ème</sup></td> <td>4<sup>ème</sup></td> <td>5<sup>ème</sup></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span>N&deg; Driver</span></td>
+                                        <td><input type="text" maxlength="2"/></td>
+                                        <td><input type="text" maxlength="2"/></td>
+                                        <td><input type="text" maxlength="2"/></td>
+                                        <td><input type="text" maxlength="2"/></td>
+                                        <td><input type="text" maxlength="2"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6" class="text-center">
+                                            <button class="btn btn-deep-blue bet">{% trans "VALIDATE" %}</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="box col-sm-6">
+                            <h5>QUARTE</h5>
+                            <table class="bet-grid quarte" cellspacing='0' cellpadding='0'>
+                                <thead>
+                                    <tr>
+                                        <td>Place</td> <td>1<sup>ère</sup></td> <td>2<sup>ème</sup></td> <td>3<sup>ème</sup></td> <td>4<sup>ème</sup></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span>N&deg; Driver</span></td>
+                                        <td><input type="text" maxlength="2"/></td>
+                                        <td><input type="text" maxlength="2"/></td>
+                                        <td><input type="text" maxlength="2"/></td>
+                                        <td><input type="text" maxlength="2"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5" class="text-center">
+                                            <button class="btn btn-deep-blue bet">{% trans "VALIDATE" %}</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="box col-sm-6" style='border-right: none'>
+                            <h5>TIERCE</h5>
+                            <table class="bet-grid tierce" cellspacing='0' cellpadding='0'>
+                                <thead>
+                                    <tr>
+                                        <td>Place</td> <td>1<sup>ère</sup></td> <td>2<sup>ème</sup></td> <td>3<sup>ème</sup></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span>N&deg; Driver</span></td>
+                                        <td><input type="text" maxlength="2"/></td>
+                                        <td><input type="text" maxlength="2"/></td>
+                                        <td><input type="text" maxlength="2"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6" class="text-center">
+                                            <button class="btn btn-deep-blue bet">{% trans "VALIDATE" %}</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="box col-sm-6">
+                            <h5> 3 / 5</h5>
+                            <table class="bet-grid tierce" cellspacing='0' cellpadding='0'>
+                                <thead>
+                                    <tr>
+                                        <td>Place</td> <td>1<sup>ère</sup></td> <td>2<sup>ème</sup></td> <td>3<sup>ème</sup></td> <td>4<sup>ème</sup></td> <td>5<sup>ème</sup></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span>N&deg; Driver</span></td>
+                                        <td><input type="text" maxlength="2"/></td>
+                                        <td><input type="text" maxlength="2"/></td>
+                                        <td><input type="text" maxlength="2"/></td>
+                                        <td><input type="text" maxlength="2"/></td>
+                                        <td><input type="text" maxlength="2"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6" class="text-center">
+                                            <button class="btn btn-deep-blue bet">{% trans "VALIDATE" %}</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="box col-sm-6">
+                            <h5>2 / 4</h5>
+                            <table class="bet-grid dsq" cellspacing='0' cellpadding='0'>
+                                <thead>
+                                    <tr>
+                                        <td>Place</td> <td>1<sup>ère</sup></td> <td>2<sup>ème</sup></td> <td>3<sup>ème</sup></td> <td>4<sup>ème</sup></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span>N&deg; Driver</span></td>
+                                        <td><input type="text" maxlength="2"/></td>
+                                        <td><input type="text" maxlength="2"/></td>
+                                        <td><input type="text" maxlength="2"/></td>
+                                        <td><input type="text" maxlength="2"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6" class="text-center">
+                                            <button class="btn btn-deep-blue bet">{% trans "VALIDATE" %}</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="box col-sm-6" style="border-right: none">
+                            <h5> COUPLE </h5>
+                            <table class="bet-grid tierce" cellspacing='0' cellpadding='0'>
+                                <thead>
+                                    <tr>
+                                        <td>Place</td> <td>1<sup>ère</sup></td> <td>2<sup>ème</sup></td> <td>3<sup>ème</sup></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span>N&deg; Driver</span></td>
+                                        <td><input type="text" maxlength="2"/></td>
+                                        <td><input type="text" maxlength="2"/></td>
+                                        <td><input type="text" maxlength="2"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6" class="text-center">
+                                            <button class="btn btn-deep-blue bet">{% trans "VALIDATE" %}</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="box col-sm-6" style="border-right: none">
+                            <h5>P I C</h5>
+                            <table class="bet-grid pic" cellspacing='0' cellpadding='0'>
+                                <thead>
+                                    <tr>
+                                        <td>Place</td> 
+                                        <td>1<sup>ère</sup></td>
+                                        <td>2<sup>ème</sup></td>
+                                        <td>3<sup>ème</sup></td>
+                                        <td>4<sup>ème</sup></td>
+                                        <td>5<sup>ème</sup></td>
+{#                                        <td>6<sup>ème</sup></td>#}
+{#                                         <td>7<sup>ème</sup></td> <td>8<sup>ème</sup></td> <td>9<sup>ème</sup></td> <td>10<sup>ème</sup></td> <td>11<sup>ème</sup></td> <td>12<sup>ème</sup></td> <td>13<sup>ème</sup></td>#}
+{#                                         <td>14<sup>ème</sup></td> <td>15<sup>ème</sup></td> <td>16<sup>ème</sup></td> <td>17<sup>ème</sup></td> <td>18<sup>ème</sup></td> <td>19<sup>ème</sup></td> <td>20<sup>ème</sup></td>#}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span>Parité (<b>0</b> ou <b>1</b>)</span></td>
+                                        <td><input type="text" maxlength="1"/></td>
+                                        <td><input type="text" maxlength="1" /></td>
+                                        <td><input type="text" maxlength="1" /></td>
+                                        <td><input type="text" maxlength="1" /></td>
+                                        <td><input type="text" maxlength="1" /></td>
+{#                                        <td><input type="text" maxlength="1" /></td>#}
+{#                                        <td><input type="text" maxlength="1" /></td>#}
+{#                                        <td><input type="text" maxlength="1" /></td>#}
+{#                                        <td><input type="text" maxlength="1" /></td>#}
+{#                                        <td><input type="text" maxlength="1" /></td>#}
+{#                                        <td><input type="text" maxlength="1" /></td>#}
+{#                                        <td><input type="text" maxlength="1" /></td>#}
+{#                                        <td><input type="text" maxlength="1" /></td>#}
+{#                                        <td><input type="text" maxlength="1" /></td>#}
+{#                                        <td><input type="text" maxlength="1" /></td>#}
+{#                                        <td><input type="text" maxlength="1" /></td>#}
+{#                                        <td><input type="text" maxlength="1" /></td>#}
+{#                                        <td><input type="text" maxlength="1" /></td>#}
+{#                                        <td><input type="text" maxlength="1" /></td>#}
+{#                                        <td><input type="text" maxlength="1" /></td>#}
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6" class="text-center">
+                                            <button class="btn btn-deep-blue bet">{% trans "VALIDATE" %}</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="grids-stage">
+                    <div class="form-group header">
+                        <label for="matches">{% trans "Matches" %}</label>
+                        <select id="matches" class="form-control">
+                            <option>Match 1</option>
+                            <option>Match 2</option>
+                            <option>Match 3</option>
+                        </select>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="grids">
+                        <div class="box" style="clear: both; margin-bottom: 30px">
+                            <h5>PARI SIMPLE</h5>
+                            <table class="bet-grid foot simple" cellspacing='0' cellpadding='0'>
+                                <thead>
+                                    <tr>
+                                        <td class="nbr">N&deg; match</td>
+                                        <td class="date-time">Date & Heure </td>
+                                        <td class="place hidden-xs">Lieu</td>
+                                        <td class="teams">Equipes</td>
+                                        <td class="user-input" colspan="3">
+                                            <div style="margin-bottom: 6px; text-align: center"> Victoire </div>
+                                            <div>
+                                                <span> VE1 </span>
+                                                <span> Nul </span>
+                                                <span> VE2 </span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span>M1</span></td>
+                                        <td>20h00</td>
+                                        <td class="hidden-xs">Douala</td>
+                                        <td>Orix - leopard</td>
+                                        <td> <input type='radio' name="winner1" value='1'/> </td>
+                                        <td> <input type='radio' name="winner1" value='0'/> </td>
+                                        <td>
+                                            <input type='radio' name="winner1" value='2'/>
+                                            <input type='text' class='hidden'/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>M2</span></td>
+                                        <td>19h00</td>
+                                        <td class="hidden-xs">Douala</td>
+                                        <td>Caïman - union</td>
+                                        <td> <input type='radio' name="winner2" value='1'/> </td>
+                                        <td> <input type='radio' name="winner2" value='0'/> </td>
+                                        <td>
+                                            <input type='radio' name="winner2" value='2'/>
+                                            <input type='text' class='hidden'/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>M3</span></td>
+                                        <td>19h00</td>
+                                        <td>Paris </td>
+                                        <td class="hidden-xs">Psg - toulouse</td>
+                                        <td> <input type='radio' name="winner3" value='1'/> </td>
+                                        <td> <input type='radio' name="winner3" value='0'/> </td>
+                                        <td>
+                                            <input type='radio' name="winner3" value='2'/>
+                                            <input type='text' class='hidden'/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>M4</span></td>
+                                        <td>19h00</td>
+                                        <td class="hidden-xs">Marseille </td>
+                                        <td>Om - Lyon</td>
+                                        <td> <input type='radio' name="winner4" value='1'/> </td>
+                                        <td> <input type='radio' name="winner4" value='0'/> </td>
+                                        <td>
+                                            <input type='radio' name="winner4" value='2'/>
+                                            <input type='text' class='hidden'/>
+                                        </td>
+                                    </tr>
+                                                    <tr>
+                                        <td><span>M5</span></td>
+                                        <td>18h00</td>
+                                        <td class="hidden-xs">Yaounde </td>
+                                        <td>Dragon - Canon</td>
+                                        <td> <input type='radio' name="winner5" value='1'/> </td>
+                                        <td> <input type='radio' name="winner5" value='0'/> </td>
+                                        <td>
+                                            <input type='radio' name="winner5" value='2'/>
+                                            <input type='text' class='hidden'/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>M6</span></td>
+                                        <td>19h00</td>
+                                        <td class="hidden-xs">Yaounde </td>
+                                        <td>FAP - INJS</td>
+                                        <td> <input type='radio' name="winner6" value='1'/> </td>
+                                        <td> <input type='radio' name="winner6" value='0'/> </td>
+                                        <td>
+                                            <input type='radio' name="winner6" value='2'/>
+                                            <input type='text' class='hidden'/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>M7</span></td>
+                                        <td>18h00</td>
+                                        <td class="hidden-xs">Bafoussam </td>
+                                        <td>Racing - Panthere</td>
+                                        <td> <input type='radio' name="winner7" value='1'/> </td>
+                                        <td> <input type='radio' name="winner7" value='0'/> </td>
+                                        <td>
+                                            <input type='radio' name="winner7" value='2'/>
+                                            <input type='text' class='hidden'/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>M8</span></td>
+                                        <td>20h00</td>
+                                        <td class="hidden-xs">Tiko</td>
+                                        <td>Tiko United - manfe club</td>
+                                        <td> <input type='radio' name="winner8" value='1'/> </td>
+                                        <td> <input type='radio' name="winner8" value='0'/> </td>
+                                        <td>
+                                            <input type='radio' name="winner8" value='2'/>
+                                            <input type='text' class='hidden'/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>M9</span></td>
+                                        <td>18h00</td>
+                                        <td class="hidden-xs">Nkongsamba</td>
+                                        <td>Vip<sup>ère</sup> - cosmos</td>
+                                        <td> <input type='radio' name="winner9" value='1'/> </td>
+                                        <td> <input type='radio' name="winner9" value='0'/> </td>
+                                        <td>
+                                            <input type='radio' name="winner9" value='2'/>
+                                            <input type='text' class='hidden'/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>M10</span></td>
+                                        <td>18h00</td>
+                                        <td class="hidden-xs">Bafang</td>
+                                        <td>Bafang club - astre</td>
+                                        <td> <input type='radio' name="winner10" value='1'/> </td>
+                                        <td> <input type='radio' name="winner10" value='0'/> </td>
+                                        <td>
+                                            <input type='radio' name="winner10" value='2'/>
+                                            <input type='text' class='hidden'/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>M11</span></td>
+                                        <td>19h00</td>
+                                        <td class="hidden-xs">Obala</td>
+                                        <td>Tarzan - tonnere</td>
+                                        <td> <input type='radio' name="winner11" value='1'/> </td>
+                                        <td> <input type='radio' name="winner11" value='0'/> </td>
+                                        <td>
+                                            <input type='radio' name="winner11" value='2'/>
+                                            <input type='text' class='hidden'/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>M12</span></td>
+                                        <td>19h00</td>
+                                        <td class="hidden-xs">Bafia</td>
+                                        <td>Renaissance  - coton</td>
+                                        <td> <input type='radio' name="winner12" value='1'/> </td>
+                                        <td> <input type='radio' name="winner12" value='0'/> </td>
+                                        <td>
+                                            <input type='radio' name="winner12" value='2'/>
+                                            <input type='text' class='hidden'/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="10" class="text-center">
+                                            <button type="button" class="btn btn-deep-blue bet">{% trans "VALIDATE" %}</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="box" style="clear: both">
+                            <h5>P I F</h5>
+                            <table class="bet-grid foot pif" cellspacing='0' cellpadding='0'>
+                                <thead>
+                                    <tr>
+                                        <td class="nbr">N&deg; match</td>
+                                        <td class="date-time">Date & Heure </td>
+                                        <td class="place hidden-xs">Lieu</td>
+                                        <td class="teams">Equipes</td>
+                                        <td class="user-input">Parité (<b>0</b> ou <b>1</b>)</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span>M1</span></td>
+                                        <td>20h00</td>
+                                        <td class="hidden-xs">Douala</td>
+                                        <td>Orix - leopard</td>
+                                        <td> <input type='text' maxlength="1"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>M2</span></td>
+                                        <td>19h00</td>
+                                        <td class="hidden-xs">Douala</td>
+                                        <td>Caïman - union</td>
+                                        <td> <input type='text' maxlength="1"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>M3</span></td>
+                                        <td>19h00</td>
+                                        <td class="hidden-xs">Paris </td>
+                                        <td>Psg - toulouse</td>
+                                        <td> <input type='text' maxlength="1"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>M4</span></td>
+                                        <td>19h00</td>
+                                        <td class="hidden-xs">Marseille </td>
+                                        <td>Om - Lyon</td>
+                                        <td> <input type='text' maxlength="1"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>M5</span></td>
+                                        <td>18h00</td>
+                                        <td class="hidden-xs">Yaounde </td>
+                                        <td>Dragon - Canon</td>
+                                        <td> <input type='text' maxlength="1"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>M6</span></td>
+                                        <td>19h00</td>
+                                        <td class="hidden-xs">Yaounde </td>
+                                        <td>FAP - INJS</td>
+                                        <td> <input type='text' maxlength="1"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>M7</span></td>
+                                        <td>18h00</td>
+                                        <td class="hidden-xs">Bafoussam </td>
+                                        <td>Racing - Panthere</td>
+                                        <td> <input type='text' maxlength="1"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>M8</span></td>
+                                        <td>20h00</td>
+                                        <td class="hidden-xs">Tiko</td>
+                                        <td>Tiko United - manfe club</td>
+                                        <td> <input type='text' maxlength="1"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>M9</span></td>
+                                        <td>18h00</td>
+                                        <td class="hidden-xs">Nkongsamba</td>
+                                        <td>Vipère - cosmos</td>
+                                        <td> <input type='text' maxlength="1"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>M10</span></td>
+                                        <td>18h00</td>
+                                        <td class="hidden-xs">Bafang</td>
+                                        <td>Bafang club - astre</td>
+                                        <td> <input type='text' maxlength="1"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>M11</span></td>
+                                        <td>19h00</td>
+                                        <td class="hidden-xs">Obala</td>
+                                        <td>Tarzan - tonnere</td>
+                                        <td> <input type='text' maxlength="1"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span>M12</span></td>
+                                        <td>19h00</td>
+                                        <td class="hidden-xs">Bafia</td>
+                                        <td>Renaissance  - coton</td>
+                                        <td> <input type='text' maxlength="1"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6" class="text-center">
+                                            <button type="button" class="btn btn-deep-blue bet">{% trans "VALIDATE" %}</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="col-sm-3">
+                <div class="ticket subtle-shade hidden-xs">
+                    <h4>{% trans "Your ticket" %}</h4>
+                    <div class="block races">
+                        <strong>{% trans "Races" %}</strong>
+                        <ul style="padding-left: 0">
+                            <li>
+                                <span class="datetime">27-02-20 16:00</span>
+                                <span>15 - 18 - 9 - 7 - 4</span>
+                                <i class="far fa-trash-alt pull-right text-danger"></i>
+                            </li>
+                            <li>
+                                <span class="datetime">27-02-20 16:00</span>
+                                <span>8 - 9 - 3 - 11</span>
+                                <i class="far fa-trash-alt pull-right text-danger"></i>
+                            </li>
+                            <li>
+                                <span class="datetime">27-02-20 16:00</span>
+                                <span>15 - 18 - 9 - 7 - 4</span>
+                                <i class="far fa-trash-alt pull-right text-danger"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="block matches">
+                        <strong>{% trans "Matches" %}</strong>
+                        <div class="block simple">
+                            <h5>{% trans  "Simple bet" %}</h5>
+                            <ul style="padding-left: 0">
+                                <li>
+                                    <span class="datetime">27-02-20 16:00</span>
+                                    <span>V - V - N - V - D</span>
+                                    <i class="far fa-trash-alt pull-right text-danger"></i>
+                                </li>
+                                <li>
+                                    <span class="datetime">27-02-20 16:00</span>
+                                    <span>N - N - N - V - D</span>
+                                    <i class="far fa-trash-alt pull-right text-danger"></i>
+                                </li>
+                                <li>
+                                    <span class="datetime">27-02-20 16:00</span>
+                                    <span>D - V - N - V - N</span>
+                                    <i class="far fa-trash-alt pull-right text-danger"></i>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="block even-odd">
+                            <h5>{% trans  "Even / Odd" %}</h5>
+                            <ul style="padding-left: 0">
+                                <li>
+                                    <span class="datetime">27-02-20 16:00</span>
+                                    <span>0 - 0 - 0 - 1 - 0</span>
+                                    <i class="far fa-trash-alt pull-right text-danger"></i>
+                                </li>
+                                <li>
+                                    <span class="datetime">27-02-20 16:00</span>
+                                    <span>1 - 0 - 0 - 1 - 1</span>
+                                    <i class="far fa-trash-alt pull-right text-danger"></i>
+                                </li>
+                                <li>
+                                    <span class="datetime">27-02-20 16:00</span>
+                                    <span>1 - 1 - 0 - 1 - 0</span>
+                                    <i class="far fa-trash-alt pull-right text-danger"></i>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="block summary text-right">
+                        <strong>TOTAL</strong>
+                        <span class="total">900</span>
+                    </div>
+                    <div class="block actions row">
+                        <div class="col-xs-6">
+                            <button class="btn btn-green btn-block">{% trans "Confirm" %}</button>
+                        </div>
+                        <div class="col-xs-6">
+                            <button class="btn btn-default btn-block">{% trans "Cancel" %}</button>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+        <div id="show-ticket" class="has-shade visible-xs">
+            <div>
+                <span></span>
+                <i class="fas fa-ticket-alt"></i>
+                Voir le ticket <span class="label label-danger">3</span>
+            </div>
+            <div class="ticket subtle-shade hidden-xs">
+                <h4>{% trans "Your ticket" %}</h4>
+                <div class="races"></div>
+                <div class="matches"></div>
+                <div class="summary"></div>
+                <div class="actions"></div>
+            </div>
+        </div>
+    </div>
+    {% if embed_doc_template_name %}
+        {% include embed_doc_template_name %}
+    {% endif %}
+{% endblock %}
+
+{% block footer %}
+    <footer>
+        &copy; {{ year }} <a href="http://www.ikwen.com"><strong>ikwen</strong></a>. {% trans "All rights reserved." %} -
+        <a href="http://www.ikwen.com/legalMentions" style="text-decoration: underline">{% trans "Legal mentions" %}</a>
+    </footer>
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script>
+        (function() {
+            let slideshowSwiper = new Swiper('#slideshow .swiper-container', {
+                loop: true,
+                autoplay: 5000
+                {#autoplay: {delay: 30000}#}
+            });
+        })()
+    </script>
+{% endblock %}
