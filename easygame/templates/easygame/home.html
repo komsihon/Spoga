@@ -1,10 +1,31 @@
 {% extends "core/base_bs.html" %}
 {% load i18n humanize static auth_tokens %}
 
+{% block meta %}
+{#    {{ block.super }}#}
+    <link rel="shortcut icon" type="image/png" href="{% static "easygame/img/betting-icon.jpg" %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />"
+    <meta name="theme-color" content="#233682">
+    <meta name="msapplication-navbutton-color" content="#233682">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#233682">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://easygame.ikwen.com/" />
+    <meta property="og:image" itemprop="image" content="{% static 'easygame/img/easygame-og-img.png' %}" />
+    <meta property="og:title" content="{% trans "Easy Game, the online betting platform in Cameroon" %}"/>
+    <meta property="og:description" content="{% trans "Build your future with Easy Game" %}">
+    <meta property="description" content="{% trans "Build your future with Easy Game." %}" />
+    <meta property="og:updated_time" content="15814714"/>
+{% endblock %}
 {% block head_style %}
     {{ block.super }}
     <link rel='stylesheet' href="{% static 'ikwen/swiper/css/swiper.min.css' %}" />
-    <link rel='stylesheet' href="{% static 'easygame/css/easygame.css' %}" />
+    <link rel='stylesheet' href="{% static 'easygame/css/easygame.css' %}?v=04.08.2020" />
+    <style>
+        .tpl {
+            display: none;
+            visibility: hidden;
+        }
+    </style>
 {% endblock %}
 
 {% block head_js %}
@@ -195,9 +216,6 @@
                                         <td>3<sup>ème</sup></td>
                                         <td>4<sup>ème</sup></td>
                                         <td>5<sup>ème</sup></td>
-{#                                        <td>6<sup>ème</sup></td>#}
-{#                                         <td>7<sup>ème</sup></td> <td>8<sup>ème</sup></td> <td>9<sup>ème</sup></td> <td>10<sup>ème</sup></td> <td>11<sup>ème</sup></td> <td>12<sup>ème</sup></td> <td>13<sup>ème</sup></td>#}
-{#                                         <td>14<sup>ème</sup></td> <td>15<sup>ème</sup></td> <td>16<sup>ème</sup></td> <td>17<sup>ème</sup></td> <td>18<sup>ème</sup></td> <td>19<sup>ème</sup></td> <td>20<sup>ème</sup></td>#}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -208,21 +226,6 @@
                                         <td><input type="text" maxlength="1" /></td>
                                         <td><input type="text" maxlength="1" /></td>
                                         <td><input type="text" maxlength="1" /></td>
-{#                                        <td><input type="text" maxlength="1" /></td>#}
-{#                                        <td><input type="text" maxlength="1" /></td>#}
-{#                                        <td><input type="text" maxlength="1" /></td>#}
-{#                                        <td><input type="text" maxlength="1" /></td>#}
-{#                                        <td><input type="text" maxlength="1" /></td>#}
-{#                                        <td><input type="text" maxlength="1" /></td>#}
-{#                                        <td><input type="text" maxlength="1" /></td>#}
-{#                                        <td><input type="text" maxlength="1" /></td>#}
-{#                                        <td><input type="text" maxlength="1" /></td>#}
-{#                                        <td><input type="text" maxlength="1" /></td>#}
-{#                                        <td><input type="text" maxlength="1" /></td>#}
-{#                                        <td><input type="text" maxlength="1" /></td>#}
-{#                                        <td><input type="text" maxlength="1" /></td>#}
-{#                                        <td><input type="text" maxlength="1" /></td>#}
-{#                                        <td><input type="text" maxlength="1" /></td>#}
                                     </tr>
                                     <tr>
                                         <td colspan="6" class="text-center">
@@ -435,84 +438,84 @@
                                         <td>20h00</td>
                                         <td class="hidden-xs">Douala</td>
                                         <td>Orix - leopard</td>
-                                        <td> <input type='text' maxlength="1"/></td>
+                                        <td> <input type="text" maxlength="1" /></td>
                                     </tr>
                                     <tr>
                                         <td><span>M2</span></td>
                                         <td>19h00</td>
                                         <td class="hidden-xs">Douala</td>
                                         <td>Caïman - union</td>
-                                        <td> <input type='text' maxlength="1"/></td>
+                                        <td> <input type="text" maxlength="1" /></td>
                                     </tr>
                                     <tr>
                                         <td><span>M3</span></td>
                                         <td>19h00</td>
                                         <td class="hidden-xs">Paris </td>
                                         <td>Psg - toulouse</td>
-                                        <td> <input type='text' maxlength="1"/></td>
+                                        <td> <input type="text" maxlength="1" /></td>
                                     </tr>
                                     <tr>
                                         <td><span>M4</span></td>
                                         <td>19h00</td>
                                         <td class="hidden-xs">Marseille </td>
                                         <td>Om - Lyon</td>
-                                        <td> <input type='text' maxlength="1"/></td>
+                                        <td> <input type="text" maxlength="1"  list=""/></td>
                                     </tr>
                                     <tr>
                                         <td><span>M5</span></td>
                                         <td>18h00</td>
                                         <td class="hidden-xs">Yaounde </td>
                                         <td>Dragon - Canon</td>
-                                        <td> <input type='text' maxlength="1"/></td>
+                                        <td> <input type="text" maxlength="1" /></td>
                                     </tr>
                                     <tr>
                                         <td><span>M6</span></td>
                                         <td>19h00</td>
                                         <td class="hidden-xs">Yaounde </td>
                                         <td>FAP - INJS</td>
-                                        <td> <input type='text' maxlength="1"/></td>
+                                        <td> <input type="text" maxlength="1" /></td>
                                     </tr>
                                     <tr>
                                         <td><span>M7</span></td>
                                         <td>18h00</td>
                                         <td class="hidden-xs">Bafoussam </td>
                                         <td>Racing - Panthere</td>
-                                        <td> <input type='text' maxlength="1"/></td>
+                                        <td> <input type="text" maxlength="1" /></td>
                                     </tr>
                                     <tr>
                                         <td><span>M8</span></td>
                                         <td>20h00</td>
                                         <td class="hidden-xs">Tiko</td>
                                         <td>Tiko United - manfe club</td>
-                                        <td> <input type='text' maxlength="1"/></td>
+                                        <td> <input type="text" maxlength="1" /></td>
                                     </tr>
                                     <tr>
                                         <td><span>M9</span></td>
                                         <td>18h00</td>
                                         <td class="hidden-xs">Nkongsamba</td>
                                         <td>Vipère - cosmos</td>
-                                        <td> <input type='text' maxlength="1"/></td>
+                                        <td> <input type="text" maxlength="1" /></td>
                                     </tr>
                                     <tr>
                                         <td><span>M10</span></td>
                                         <td>18h00</td>
                                         <td class="hidden-xs">Bafang</td>
                                         <td>Bafang club - astre</td>
-                                        <td> <input type='text' maxlength="1"/></td>
+                                        <td> <input type="text" maxlength="1" /></td>
                                     </tr>
                                     <tr>
                                         <td><span>M11</span></td>
                                         <td>19h00</td>
                                         <td class="hidden-xs">Obala</td>
                                         <td>Tarzan - tonnere</td>
-                                        <td> <input type='text' maxlength="1"/></td>
+                                        <td> <input type="text" maxlength="1" /></td>
                                     </tr>
                                     <tr>
                                         <td><span>M12</span></td>
                                         <td>19h00</td>
                                         <td class="hidden-xs">Bafia</td>
                                         <td>Renaissance  - coton</td>
-                                        <td> <input type='text' maxlength="1"/></td>
+                                        <td> <input type="text" maxlength="1" /></td>
                                     </tr>
                                     <tr>
                                         <td colspan="6" class="text-center">
@@ -526,26 +529,17 @@
                 </div>
                 <div class="clearfix"></div>
             </div>
-            <div class="col-sm-3">
+            <div id="ticket-sm" class="col-sm-3">
                 <div class="ticket subtle-shade hidden-xs">
                     <h4>{% trans "Your ticket" %}</h4>
                     <div class="block races">
                         <strong>{% trans "Races" %}</strong>
                         <ul style="padding-left: 0">
-                            <li>
+                            <em class="text-muted empty">{% trans "Empty" %}</em>
+                            <li class="tpl">
                                 <span class="datetime">27-02-20 16:00</span>
-                                <span>15 - 18 - 9 - 7 - 4</span>
-                                <i class="far fa-trash-alt pull-right text-danger"></i>
-                            </li>
-                            <li>
-                                <span class="datetime">27-02-20 16:00</span>
-                                <span>8 - 9 - 3 - 11</span>
-                                <i class="far fa-trash-alt pull-right text-danger"></i>
-                            </li>
-                            <li>
-                                <span class="datetime">27-02-20 16:00</span>
-                                <span>15 - 18 - 9 - 7 - 4</span>
-                                <i class="far fa-trash-alt pull-right text-danger"></i>
+                                <span class="comb">15 - 18 - 9 - 7 - 4</span>
+                                <a class="pull-right trash"><i class="far fa-trash-alt text-danger"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -554,40 +548,22 @@
                         <div class="block simple">
                             <h5>{% trans  "Simple bet" %}</h5>
                             <ul style="padding-left: 0">
-                                <li>
+                                <em class="text-muted empty">{% trans "Empty" %}</em>
+                                <li class="tpl">
                                     <span class="datetime">27-02-20 16:00</span>
-                                    <span>V - V - N - V - D</span>
-                                    <i class="far fa-trash-alt pull-right text-danger"></i>
-                                </li>
-                                <li>
-                                    <span class="datetime">27-02-20 16:00</span>
-                                    <span>N - N - N - V - D</span>
-                                    <i class="far fa-trash-alt pull-right text-danger"></i>
-                                </li>
-                                <li>
-                                    <span class="datetime">27-02-20 16:00</span>
-                                    <span>D - V - N - V - N</span>
-                                    <i class="far fa-trash-alt pull-right text-danger"></i>
+                                    <span class="comb">D - V - N - V - N</span>
+                                    <a class="pull-right trash"><i class="far fa-trash-alt text-danger"></i></a>
                                 </li>
                             </ul>
                         </div>
                         <div class="block even-odd">
                             <h5>{% trans  "Even / Odd" %}</h5>
                             <ul style="padding-left: 0">
-                                <li>
+                                <em class="text-muted empty">{% trans "Empty" %}</em>
+                                <li class="tpl">
                                     <span class="datetime">27-02-20 16:00</span>
-                                    <span>0 - 0 - 0 - 1 - 0</span>
-                                    <i class="far fa-trash-alt pull-right text-danger"></i>
-                                </li>
-                                <li>
-                                    <span class="datetime">27-02-20 16:00</span>
-                                    <span>1 - 0 - 0 - 1 - 1</span>
-                                    <i class="far fa-trash-alt pull-right text-danger"></i>
-                                </li>
-                                <li>
-                                    <span class="datetime">27-02-20 16:00</span>
-                                    <span>1 - 1 - 0 - 1 - 0</span>
-                                    <i class="far fa-trash-alt pull-right text-danger"></i>
+                                    <span class="comb">1 - 1 - 0 - 1 - 0</span>
+                                    <a class="pull-right trash"><i class="far fa-trash-alt text-danger"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -598,7 +574,7 @@
                     </div>
                     <div class="block actions row">
                         <div class="col-xs-6">
-                            <button class="btn btn-green btn-block">{% trans "Confirm" %}</button>
+                            <button class="btn btn-green btn-block payment-start">{% trans "Confirm" %}</button>
                         </div>
                         <div class="col-xs-6">
                             <button class="btn btn-default btn-block">{% trans "Cancel" %}</button>
@@ -611,24 +587,60 @@
             <div class="clearfix"></div>
         </div>
         <div class="clearfix"></div>
-        <div id="show-ticket" class="has-shade visible-xs">
+        <div id="ticket-xs" class="has-shade visible-xs">
             <div>
-                <span></span>
-                <i class="fas fa-ticket-alt"></i>
-                Voir le ticket <span class="label label-danger">3</span>
+                <a class="see-ticket">
+                    <span></span>
+                    <i class="fas fa-ticket-alt"></i>
+                    {% trans "See ticket" %} <span class="label label-danger"></span>
+                </a>
+                <button type="button" class="close-ticket close pull-right" style="display: none"><span>&times;</span></button>
             </div>
-            <div class="ticket subtle-shade hidden-xs">
+            <div class="ticket subtle-shade">
                 <h4>{% trans "Your ticket" %}</h4>
-                <div class="races"></div>
-                <div class="matches"></div>
-                <div class="summary"></div>
-                <div class="actions"></div>
+                <div>
+                    <div class="block races">
+                        <strong>{% trans "Races" %}</strong>
+                        <ul style="padding-left: 0">
+                            <em class="text-muted empty">{% trans "Empty" %}</em>
+                        </ul>
+                    </div>
+                </div>
+                <div class="matches">
+                    <div class="block simple">
+                        <h5>{% trans  "Simple bet" %}</h5>
+                        <ul style="padding-left: 0">
+                            <em class="text-muted empty">{% trans "Empty" %}</em>
+                        </ul>
+                    </div>
+                    <div class="block even-odd">
+                        <h5>{% trans  "Even / Odd" %}</h5>
+                        <ul style="padding-left: 0">
+                            <em class="text-muted empty">{% trans "Empty" %}</em>
+                        </ul>
+                    </div>
+                </div>
+                <div class="block summary text-right">
+                    <strong>TOTAL</strong>
+                    <span class="total">900</span>
+                </div>
+                <div class="block actions row">
+                    <div class="col-xs-6">
+                        <button class="btn btn-green btn-block payment-start">{% trans "Confirm" %}</button>
+                    </div>
+                    <div class="col-xs-6">
+                        <button class="btn btn-default btn-block">{% trans "Cancel" %}</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     {% if embed_doc_template_name %}
         {% include embed_doc_template_name %}
     {% endif %}
+{#    {% with payment_cancel_default='yes' %}#}
+        {% include 'billing/snippets/modal_payment_options.html' %}
+{#    {% endwith %}#}
 {% endblock %}
 
 {% block footer %}
@@ -642,11 +654,146 @@
     {{ block.super }}
     <script>
         (function() {
+            {% if messages %}
+                {% for msg in messages %}ikwen.showFloatingNotice('{{ msg|safe }}', '{{ msg.tags }}', 6);{% endfor %}
+            {% endif %}
             let slideshowSwiper = new Swiper('#slideshow .swiper-container', {
                 loop: true,
                 autoplay: 5000
-                {#autoplay: {delay: 30000}#}
             });
+            let currentDate = new Date(),
+                day = currentDate.getUTCDate(),
+                month = currentDate.getMonth() + 1,
+                year = currentDate.getFullYear(),
+                pifbet,
+                simplebet,
+                parity,
+                winner,
+                driver,
+                racebet = '',
+                date,
+                amount,
+                totalbet,
+                _originalSize = $(window).height();
+
+            date = day + '-' + month + '-' + year + ' ' + currentDate.getHours() + ':' + currentDate.getMinutes();
+
+            $('#ticket-xs .ticket').hide();
+            get_total_bets();
+
+            $('.pif .bet').click(() => {
+                pifbet = '';
+                $('.pif input').each(function (index, element) {
+                    parity = $(element).val().toString();
+                    if (parity !== '')
+                        if (pifbet === '')
+                            pifbet = parity;
+                        else
+                            pifbet = pifbet + ' - ' + parity;
+                });
+                $('.ticket .even-odd .empty').remove();
+                let $comb = $('#ticket-sm .ticket .even-odd .tpl').clone().removeClass('tpl');
+                $comb.find('.comb').text(pifbet);
+                $comb.find('.datetime').text(date);
+                if ($(window).width() < 768)
+                    $('#ticket-xs .even-odd ul').prepend($comb);
+                else
+                    $('#ticket-sm .even-odd ul').prepend($comb);
+            });
+
+            $('.grids .simple .bet').click(() => {
+                simplebet = '';
+                $('.grids .simple tbody tr').each(function (index, element) {
+                    winner = $(element).find('input:checked').val();
+                    switch (winner) {
+                        case '0':
+                           winner = 'N';
+                           break;
+                        case '1':
+                            winner = 'V';
+                            break;
+                        case '2':
+                            winner = 'D';
+                            break;
+                    }
+                    if (winner !== undefined)
+                        if (simplebet === '')
+                            simplebet = winner;
+                        else
+                            simplebet = simplebet + ' - ' + winner;
+                });
+                $('.ticket .simple .empty').remove();
+                let $comb = $('#ticket-sm .ticket .simple .tpl').clone().removeClass('tpl');
+                $comb.find('.comb').text(simplebet);
+                $comb.find('.datetime').text(date);
+                if ($(window).width() < 768)
+                    $('#ticket-xs .simple ul').prepend($comb);
+                else
+                    $('#ticket-sm .simple ul').prepend($comb);
+            });
+
+            $('.quinte, .quarte, .pic, .tierce, .dsq').find('.bet').click((e) => {
+                racebet = '';
+                $(e.target).parents('tbody').find('input').each(function (index, element) {
+                    driver = $(element).val().toString();
+                    if (driver !== undefined && driver !== '')
+                        if (racebet === '')
+                            racebet = driver;
+                        else
+                            racebet = racebet + ' - ' + driver;
+                });
+                $('.ticket .races .empty').remove();
+                let $comb = $('.ticket .races .tpl').clone().removeClass('tpl');
+                $comb.find('.comb').text(racebet);
+                $comb.find('.datetime').text(date);
+                if ($(window).width() < 768)
+                    $('#ticket-xs .races ul').prepend($comb);
+                else{
+                    $('#ticket-sm .races ul').prepend($comb);
+                }
+            });
+
+            $('.bet').click(function () {
+                get_total_bets();
+            });
+
+            $('.see-ticket').click((e) => {
+                if ($(window).height() === _originalSize){
+                    $('#ticket-xs .close-ticket').show();
+                    $('#ticket-xs').addClass('disclose');
+                    $('#ticket-xs .ticket').show();
+                }
+            });
+
+            $('body').on('click', '.close-ticket', () => {
+                $('#ticket-xs .close-ticket').hide();
+                $('#ticket-xs').removeClass('disclose');
+                $('#ticket-xs .ticket').hide();
+            });
+
+            $("a.trash").click((e) => {
+                console.log($(this));
+                $(this).parents('li').hide();
+                get_total_bets();
+            });
+
+            let _currentSize = $(window).height();
+            $('#ticket-xs').css('top', _currentSize - 45);
+            $(window).resize(() => {
+                let _currentSize = $(window).height();
+                $('#ticket-xs').css('top', _currentSize - 45);
+            });
+
+            function get_total_bets() {
+                totalbet = 0;
+                $('.ticket .block li:not(.tpl)').each(function (index, element) {
+                    totalbet += 1;
+                });
+                $('.label.label-danger').text(totalbet);
+                amount = totalbet * 100;
+                $('body').find('.total').text(amount.formatMoney(0, "{{ settings.THOUSAND_SEPARATOR }}"));
+                $('#amount').val(amount);
+            }
         })()
     </script>
 {% endblock %}
