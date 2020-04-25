@@ -21,7 +21,24 @@
 #slideshow {/* width: 100%; */height: 150px;}
 .swiper-slide {background: no-repeat center;background-size: cover;height: 150px;width: 100%;}
 
-#show-ticket {background: #fff;bottom: 0;height: 42px;padding: 10px 15px;position: fixed;width: 100%;}
+.comb {margin-left: 5px}
+.see-ticket {text-decoration: none}
+.see-ticket i {color: #464646}
+#ticket-xs {
+    background: #fff;
+    /*top: 626.5px;*/
+    overflow: auto;
+    height: 100vh;
+    padding: 10px 15px;
+    position: fixed;
+    width: 100%;
+    transition: top .3s;
+    z-index: 10;
+    }
+#ticket-xs.disclose {top: 55px!important;transition: top .3s;}
+#ticket-xs .close-ticket {color: #464646}
+#ticket-xs.disclose .ticket {margin-top: 3vh}
+
 
 /****   GRIDS RULES  ****/
 
